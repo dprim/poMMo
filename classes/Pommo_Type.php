@@ -122,7 +122,7 @@ class Pommo_Type
         return $o;
     }
 
-    function pending()
+    public static function pending()
     {
         return array(
             'id' => null,

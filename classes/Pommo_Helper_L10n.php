@@ -19,7 +19,7 @@
  */
 
 class Pommo_Helper_L10n {
-    function init($language, $baseDir) {
+    public static function init($language, $baseDir) {
 
         if (!is_file($baseDir . 'language/' . $language . '/LC_MESSAGES/pommo.mo'))
             Pommo::kill('Unknown Language (' .$language . ')');
@@ -69,8 +69,8 @@ class Pommo_Helper_L10n {
     }
 
     // setlocale modified from from Gallery2
-    function _setlocale($category, $locale, $baseDir) {
-
+    public static function _setlocale($category, $locale, $baseDir) {
+    
         if (defined('_poMMo_gettext'))
             return Pommo_Helper_L10n::_setLocaleEmu($category, $locale, $baseDir);
 
@@ -114,7 +114,7 @@ class Pommo_Helper_L10n {
         return false;
     }
 
-    function translate($msg) {
+    public static function translate($msg) {
         if (defined('_poMMo_gettext'))
             return T_($msg);
         return gettext($msg);

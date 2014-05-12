@@ -429,7 +429,7 @@ class Pommo_Mailing
 
     // checks if a mailing is processing
     // returns (bool) - true if current mailing
-    static function isCurrent() {
+    public static function isCurrent() {
         $dbo =& Pommo::$_dbo;
 
         $query = "
@@ -455,7 +455,7 @@ class Pommo_Mailing
     // accepts a limit (def. 50) -- or 0
     // returns an array of notices, if timestamp set to true, array will contain an array of keys that are timestamps, and value is an array of notices
     //   e.g. array('<timestamp>' => array('notice1','notice2'))
-    function & getNotices($id,$limit = 50, $timestamp = FALSE) {
+    public static function & getNotices($id,$limit = 50, $timestamp = FALSE) {
         $dbo =& Pommo::$_dbo;
 
         $limit = intval($limit);
@@ -496,7 +496,7 @@ class Pommo_Mailing
     }
 
     // returns the Subject of a Mailing
-    function getSubject($id) {
+    public static function getSubject($id) {
         $dbo =& Pommo::$_dbo;
 
         $query = "

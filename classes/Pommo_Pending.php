@@ -35,7 +35,7 @@ class Pommo_Pending {
     // make a pending template based off a database row (subscriber_pending schema)
     // accepts a pending template (assoc array)
     // return a pending object (array)
-    function & makeDB(&$row) {
+    public static function & makeDB(&$row) {
         $in = @array(
         'id' => $row['pending_id'],
         'subscriber_id' => $row['subscriber_id'],
@@ -133,7 +133,7 @@ class Pommo_Pending {
     //  only includes active && pending subscribers
     // accepts a subscriber ID (int)
     // returns pending object (array) or false if not found.
-    function getBySubID($id = null){
+    public static function getBySubID($id = null){
         global $pommo;
         $dbo =& Pommo::$_dbo;
 
