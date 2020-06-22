@@ -21,7 +21,7 @@
  class Pommo_Helper_Maintenance
  {
 
-    function perform() {
+    public static function perform() {
         Pommo_Helper_Maintenance::memorizeBaseURL();
         if(is_file(Pommo::$_workDir.'/import.csv'))
             if (!unlink(Pommo::$_workDir.'/import.csv'))
@@ -42,7 +42,7 @@
 
     }
     // write baseURL to maintenance.php in config file syntax (to be read back by embedded apps)
-    function memorizeBaseURL() {
+    public static function memorizeBaseURL() {
 
         if (!$handle = fopen(Pommo::$_workDir . '/maintenance.php', 'w'))
             Pommo::kill('Unable to prepare maintenance.php for writing');
@@ -55,14 +55,14 @@
         fclose($handle);
     }
 
-    function rememberBaseURL() {
+    public static function rememberBaseURL() {
         $config = Pommo_Helper::parseConfig(Pommo::$_workDir . '/maintenance.php');
         return $config['baseURL'];
     }
 
     // recursively deletes the contents of a directory
     // if files is passed, only a directories files will be removed
-    function delDir($dirName, $orig = false) {
+    public static function delDir($dirName, $orig = false) {
         if (!$orig)
             $orig = $dirName;
 
